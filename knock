@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+import os
+import argparse
+from pathlib import Path
+import subprocess
+
+parser = argparse.ArgumentParser(description='Convert an ACSM file to a DRM-free ePub file')
+parser.add_argument('acsm_file', metavar='file', type=str, help='the ACSM file to convert')
+args = parser.parse_args()
+
+# these are all Path objects: https://docs.python.org/3/library/pathlib.html
+args.acsm_file = Path(args.acsm_file).expanduser()
+args.drm_file = args.acsm_file.with_suffix('.drm.epub')
+args.epub_file = args.acsm_file.with_suffix('.epub')
+args.adobe_dir = Path('~/.config/knock').expanduser()
+args.activation_file = args.adobe_dir.joinpath('activation.xml')
+
+if not args.adobe_dir.exists():
+    raise Exception('This device is not registered')
+
+print('Downloading the ACSM file from Adobe...')
+
+subprocess.check_output([
+    'acsmdownloader',
+    '-d', str(args.adobe_dir.joinpath('device.xml')),
+    '-a', str(args.adobe_dir.joinpath('activation.xml')),
+    '-k', str(args.adobe_dir.joinpath('devicesalt')),
+    '-o', str(args.drm_file),
+    '-f', str(args.acsm_file)
+])
+
+print('Decrypting the file...')
+
+subprocess.check_output([
+    'inept-epub',
+    str(args.activation_file),
+    str(args.drm_file),
+    str(args.epub_file)
+])
+
+args.drm_file.unlink()
+
+print(f'\nThe DRM-free ePub file now exists at {str(args.epub_file)}!')
+print(f'Once you make sure the ePub file is readable, you can delete {str(args.acsm_file)}.')

@@ -1,0 +1,97 @@
+{
+  "nodes": {
+    "inept-epub": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1626630204,
+        "narHash": "sha256-R56r2p7z1bNJS0ng+KeuV4zbWT4T46zc6YDqySB7jQc=",
+        "owner": "BentonEdmondson",
+        "repo": "inept-epub",
+        "rev": "45306cadf7fd7a04453a60b8c1e39bc06b0035ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BentonEdmondson",
+        "repo": "inept-epub",
+        "type": "github"
+      }
+    },
+    "libgourou-utils": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1626630231,
+        "narHash": "sha256-nuhlaSwdTVZl3mHA3Pw8pdbr8bxBmRuNAEwNh/IU/NE=",
+        "owner": "BentonEdmondson",
+        "repo": "libgourou-utils",
+        "rev": "07637d6aab51fc1e188576fefcf9a7b6d77f6fc6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BentonEdmondson",
+        "repo": "libgourou-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1626464457,
+        "narHash": "sha256-u2PCh/+8vQSLwf0mPpKHKQ8hAPB3l4uNZR3r0TdK2Lg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c6c4a3d45ab200f17805d2d86a1ff1cc7ca2b186",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1626464457,
+        "narHash": "sha256-u2PCh/+8vQSLwf0mPpKHKQ8hAPB3l4uNZR3r0TdK2Lg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c6c4a3d45ab200f17805d2d86a1ff1cc7ca2b186",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1626464457,
+        "narHash": "sha256-u2PCh/+8vQSLwf0mPpKHKQ8hAPB3l4uNZR3r0TdK2Lg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c6c4a3d45ab200f17805d2d86a1ff1cc7ca2b186",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "inept-epub": "inept-epub",
+        "libgourou-utils": "libgourou-utils",
+        "nixpkgs": "nixpkgs_3"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
