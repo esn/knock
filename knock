@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 import subprocess
 
-parser = argparse.ArgumentParser(description='Convert an ACSM file to a DRM-free ePub file')
+parser = argparse.ArgumentParser(prog="knock", description='Convert an ACSM file to a DRM-free ePub file')
 parser.add_argument('acsm_file', metavar='file', type=str, help='the ACSM file to convert')
 args = parser.parse_args()
 
