@@ -1,7 +1,14 @@
 {
-  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-  inputs.libgourou-utils.url = github:BentonEdmondson/libgourou-utils;
-  inputs.inept-epub.url = github:BentonEdmondson/inept-epub;
+  inputs = {
+    
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+
+    libgourou-utils.url = github:BentonEdmondson/libgourou-utils;
+    libgourou-utils.inputs.nixpkgs.follows = "nixpkgs";
+
+    inept-epub.url = github:BentonEdmondson/inept-epub;
+    inept-epub.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = { self, ... }@flakes: let
     nixpkgs = flakes.nixpkgs.legacyPackages.x86_64-linux;
