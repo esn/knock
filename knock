@@ -2,6 +2,7 @@
 
 import os, sys, argparse, subprocess
 from pathlib import Path
+from getpass import getpass
 
 parser = argparse.ArgumentParser(prog='knock', description='Convert an ACSM file to a DRM-free EPUB file')
 parser.add_argument('acsm_file', metavar='file', type=str, help='the ACSM file to convert')
@@ -18,7 +19,17 @@ if not args.acsm_file.exists():
     raise Exception(f'{str(args.acsm_file)} does not exist.')
 
 if not args.adobe_dir.exists():
-    raise Exception('This device is not registered')
+    print('This device is not registered with Adobe.')
+    email = input("Enter your Adobe account's email address: ")
+    password = getpass("Enter your Adobe account's password: ")
+    print('Registering this device with Adobe...')
+    
+    subprocess.check_output([
+        'activate',
+        '-u', email,
+        '-p', password,
+        '-O', str(args.adobe_dir)
+    ])
 
 print('Downloading the ACSM file from Adobe...')
 
