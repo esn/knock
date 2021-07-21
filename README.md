@@ -35,7 +35,9 @@ The resulting ePub file can be read with any ePub reader.
 
 [It's Perfectly Legal to Tell People How to Remove DRM](https://gizmodo.com/its-perfectly-legal-to-tell-people-how-to-remove-drm-1670223538) (Gizmodo)
 
-## [The Name](https://roll20.net/compendium/dnd5e/Knock#content)
+## The Name
+
+The name comes from [the D&D 5e spell](https://roll20.net/compendium/dnd5e/Knock#content) for freeing locked items:
 
 > ### Knock
 > *2nd level transmutation*\
@@ -44,5 +46,5 @@ The resulting ePub file can be read with any ePub reader.
 > **Components**: V\
 > **Duration**: Instantaneous\
 > **Classes**: Bard, Sorcerer, Wizard\
-> Choose an object that you can see within range. The object can be a door, a box, a chest, a set of manacles, a padlock, or another> object that contains a mundane or magical means that prevents access. A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked. If you choose a target that is held shut with arcane lock, that spell is suppressed for 10 minutes, during which time the target can be> opened and shut normally. When you cast the spell, a loud knock, audible from as far away as 300 feet, emanates from the target object.
+> Choose an object that you can see within range. The object can be a door, a box, a chest, a set of manacles, a padlock, or another object that contains a mundane or magical means that prevents access. A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked. If you choose a target that is held shut with arcane lock, that spell is suppressed for 10 minutes, during which time the target can be opened and shut normally. When you cast the spell, a loud knock, audible from as far away as 300 feet, emanates from the target object.
 
