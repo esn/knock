@@ -1,6 +1,6 @@
 # Knock
 
-Convert ACSM files to DRM-free ePub files using one command.
+Convert ACSM files to DRM-free EPUB files using one command.
 
 TODO: add gif
 
@@ -19,8 +19,8 @@ TODO: add gif
 
 ## Dependencies
 
-* [`libgourou-utils`](https://github.com/BentonEdmondson/libgourou-utils) for using the ACSM file to download the corresponding encrypted ePub file from Adobe's servers
-* [`inept-epub`](https://github.com/BentonEdmondson/inept-epub/) for decrypting the ePub file
+* [`libgourou-utils`](https://github.com/BentonEdmondson/libgourou-utils) for using the ACSM file to download the corresponding encrypted EPUB file from Adobe's servers
+* [`inept-epub`](https://github.com/BentonEdmondson/inept-epub/) for decrypting the EPUB file
 
 ## Verified Book Sources
 
@@ -29,7 +29,7 @@ Knock has been verified to work on books provided by the following
     > To download and read this eBook on a PC or Mac:
     > * Adobe Digital Editions (This is a free app specially developed for eBooks. It's not the same as Adobe Reader, which you probably already have on your computer.)
 
-The resulting ePub file can be read with any ePub reader.
+The resulting EPUB file can be read with any EPUB reader.
 
 ## Legality
 
