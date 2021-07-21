@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
-import os
-import argparse
+import os, sys, argparse, subprocess
 from pathlib import Path
-import subprocess
 
-parser = argparse.ArgumentParser(prog="knock", description='Convert an ACSM file to a DRM-free ePub file')
+parser = argparse.ArgumentParser(prog='knock', description='Convert an ACSM file to a DRM-free EPUB file')
 parser.add_argument('acsm_file', metavar='file', type=str, help='the ACSM file to convert')
 args = parser.parse_args()
 
@@ -15,6 +13,9 @@ args.drm_file = args.acsm_file.with_suffix('.drm.epub')
 args.epub_file = args.acsm_file.with_suffix('.epub')
 args.adobe_dir = Path('~/.config/knock').expanduser()
 args.activation_file = args.adobe_dir.joinpath('activation.xml')
+
+if not args.acsm_file.exists():
+    raise Exception(f'{str(args.acsm_file)} does not exist.')
 
 if not args.adobe_dir.exists():
     raise Exception('This device is not registered')
@@ -41,5 +42,5 @@ subprocess.check_output([
 
 args.drm_file.unlink()
 
-print(f'\nThe DRM-free ePub file now exists at {str(args.epub_file)}!')
-print(f'Once you make sure the ePub file is readable, you can delete {str(args.acsm_file)}.')
+print(f'\nThe DRM-free EPUB file now exists at {str(args.epub_file)}!')
+print(f'Once you make sure the EPUB file is readable, you can delete {str(args.acsm_file)}.')
