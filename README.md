@@ -37,6 +37,10 @@ The resulting EPUB file can be read with any EPUB reader.
 
 [It's Perfectly Legal to Tell People How to Remove DRM](https://gizmodo.com/its-perfectly-legal-to-tell-people-how-to-remove-drm-1670223538) (Gizmodo)
 
+## License
+
+This software is licensed under GPLv3 because its dependencies are licensed under GPLv3 and LGPLv3.
+
 ## The Name
 
 The name comes from the [D&D 5e spell](https://roll20.net/compendium/dnd5e/Knock#content) for freeing locked items:
