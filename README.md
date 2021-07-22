@@ -22,6 +22,8 @@ Convert ACSM files to DRM-free EPUB files using one command.
 * [`libgourou-utils`](https://github.com/BentonEdmondson/libgourou-utils) for using the ACSM file to download the corresponding encrypted EPUB file from Adobe's servers
 * [`inept-epub`](https://github.com/BentonEdmondson/inept-epub/) for decrypting the EPUB file
 
+These are already included in all releases and in the Nix flake of course.
+
 ## Verified Book Sources
 
 Knock has been verified to work on books provided by the following
@@ -37,7 +39,7 @@ The resulting EPUB file can be read with any EPUB reader.
 
 ## The Name
 
-The name comes from [the D&D 5e spell](https://roll20.net/compendium/dnd5e/Knock#content) for freeing locked items:
+The name comes from the [D&D 5e spell](https://roll20.net/compendium/dnd5e/Knock#content) for freeing locked items:
 
 > ### Knock
 > *2nd level transmutation*\
