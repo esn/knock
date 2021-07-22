@@ -18,6 +18,9 @@ args.activation_file = args.adobe_dir.joinpath('activation.xml')
 if not args.acsm_file.exists():
     raise Exception(f'{str(args.acsm_file)} does not exist.')
 
+if args.epub_file.exists():
+    raise Exception(f'{str(args.epub_file)} already exists.')
+
 if not args.adobe_dir.exists():
     print('This device is not registered with Adobe.')
     email = input("Enter your Adobe account's email address: ")
@@ -53,5 +56,4 @@ subprocess.check_output([
 
 args.drm_file.unlink()
 
-print(f'\nThe DRM-free EPUB file now exists at {str(args.epub_file)}!')
-print(f'Once you make sure the EPUB file is readable, you can delete {str(args.acsm_file)}.')
+print(f'\nDRM-free EPUB file created:\n{str(args.epub_file)}')
