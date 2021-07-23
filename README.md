@@ -39,7 +39,7 @@ The resulting EPUB file can be read with any EPUB reader.
 
 ## License
 
-This software is licensed under GPLv3 because its dependencies are licensed under GPLv3 and LGPLv3.
+This software is licensed under GPLv3 because one of its dependencies is licensed under GPLv3.
 
 ## The Name
 
