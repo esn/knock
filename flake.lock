@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1626630204,
-        "narHash": "sha256-R56r2p7z1bNJS0ng+KeuV4zbWT4T46zc6YDqySB7jQc=",
+        "lastModified": 1627000145,
+        "narHash": "sha256-ajj96BcrbwLfVQ0jBd4Ut3qN6bNN9wYi44lTcZbczmk=",
         "owner": "BentonEdmondson",
         "repo": "inept-epub",
-        "rev": "45306cadf7fd7a04453a60b8c1e39bc06b0035ec",
+        "rev": "2847a5fb65952ac717d7e9a057d365bfef5e5f00",
         "type": "github"
       },
       "original": {
@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1626630231,
-        "narHash": "sha256-nuhlaSwdTVZl3mHA3Pw8pdbr8bxBmRuNAEwNh/IU/NE=",
+        "lastModified": 1626999876,
+        "narHash": "sha256-lBbUrNfuat4IsjEAP5icOyMPN4pojmShe/1An4VZ4Tg=",
         "owner": "BentonEdmondson",
         "repo": "libgourou-utils",
-        "rev": "07637d6aab51fc1e188576fefcf9a7b6d77f6fc6",
+        "rev": "cc532837b164ffd2c4a9e4351702f96a47e2f244",
         "type": "github"
       },
       "original": {
@@ -42,11 +42,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1626464457,
-        "narHash": "sha256-u2PCh/+8vQSLwf0mPpKHKQ8hAPB3l4uNZR3r0TdK2Lg=",
+        "lastModified": 1626852498,
+        "narHash": "sha256-lOXUJvi0FJUXHTVSiC5qsMRtEUgqM4mGZpMESLuGhmo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c6c4a3d45ab200f17805d2d86a1ff1cc7ca2b186",
+        "rev": "16105403bdd843540cbef9c63fc0f16c1c6eaa70",
         "type": "github"
       },
       "original": {
