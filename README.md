@@ -4,6 +4,8 @@ Convert ACSM files to DRM-free EPUB files using one command.
 
 ![CLI demonstration](demo.png)
 
+This software does not utilize Adobe Digital Editions nor Wine. It is completely free and open-source software written natively for Linux.
+
 ## Setup and Installation
 
 1. Create a free Adobe account [here](https://account.adobe.com) if you do not already have one.
