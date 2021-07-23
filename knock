@@ -13,7 +13,6 @@ args.acsm_file = Path(args.acsm_file).expanduser()
 args.drm_file = args.acsm_file.with_suffix('.drm.epub')
 args.epub_file = args.acsm_file.with_suffix('.epub')
 args.adobe_dir = Path('~/.config/knock').expanduser()
-args.activation_file = args.adobe_dir.joinpath('activation.xml')
 
 if not args.acsm_file.exists():
     raise Exception(f'{str(args.acsm_file)} does not exist.')
@@ -49,7 +48,7 @@ print('Decrypting the file...')
 
 subprocess.check_output([
     'inept-epub',
-    str(args.activation_file),
+    str(args.adobe_dir.joinpath('activation.xml')),
     str(args.drm_file),
     str(args.epub_file)
 ])
