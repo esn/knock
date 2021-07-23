@@ -34,7 +34,7 @@ if not args.adobe_dir.exists():
         '-O', str(args.adobe_dir)
     ])
 
-print('Downloading the ACSM file from Adobe...')
+print('Downloading the EPUB file from Adobe...')
 
 subprocess.check_output([
     'acsmdownloader',
