@@ -2,7 +2,7 @@
 
 Convert ACSM files to DRM-free EPUB files using one command.
 
-![](demo.png)
+![CLI demonstration](demo.png)
 
 ## Setup and Installation
 
