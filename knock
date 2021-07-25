@@ -26,7 +26,7 @@ if not args.adobe_dir.exists():
     password = getpass("Enter your Adobe account's password: ")
     print('Registering this device with Adobe...')
     
-    subprocess.check_output([
+    subprocess.check_call([
         'activate',
         '-u', email,
         '-p', password,
@@ -35,7 +35,7 @@ if not args.adobe_dir.exists():
 
 print('Downloading the EPUB file from Adobe...')
 
-subprocess.check_output([
+subprocess.check_call([
     'acsmdownloader',
     '-d', str(args.adobe_dir.joinpath('device.xml')),
     '-a', str(args.adobe_dir.joinpath('activation.xml')),
@@ -46,7 +46,7 @@ subprocess.check_output([
 
 print('Decrypting the file...')
 
-subprocess.check_output([
+subprocess.check_call([
     'inept-epub',
     str(args.adobe_dir.joinpath('activation.xml')),
     str(args.drm_file),
