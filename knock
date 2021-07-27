@@ -27,7 +27,7 @@ if not args.adobe_dir.exists():
     print('Registering this device with Adobe...')
     
     subprocess.check_call([
-        'activate',
+        'adept-register',
         '-u', email,
         '-p', password,
         '-O', str(args.adobe_dir)
@@ -36,7 +36,7 @@ if not args.adobe_dir.exists():
 print('Downloading the EPUB file from Adobe...')
 
 subprocess.check_call([
-    'acsmdownloader',
+    'adept-download',
     '-d', str(args.adobe_dir.joinpath('device.xml')),
     '-a', str(args.adobe_dir.joinpath('activation.xml')),
     '-k', str(args.adobe_dir.joinpath('devicesalt')),
