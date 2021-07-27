@@ -20,7 +20,10 @@
         version = "0.0.0";
         src = self;
         nativeBuildInputs = [ nixpkgs.makeWrapper ];
-        buildInputs = [ nixpkgs.python3 libgourou-utils inept-epub ];
+        buildInputs = [
+          (nixpkgs.python3.withPackages(python3Packages: [ python3Packages.python_magic ]))
+          libgourou-utils inept-epub
+        ];
         installPhase = ''
           mkdir -p $out/bin
           chmod +x knock

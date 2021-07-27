@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse, subprocess
+import os, sys, argparse, subprocess, magic
 from pathlib import Path
 from getpass import getpass
 
@@ -10,15 +10,15 @@ args = parser.parse_args()
 
 # these are all Path objects: https://docs.python.org/3/library/pathlib.html
 args.acsm_file = Path(args.acsm_file).expanduser()
-args.drm_file = args.acsm_file.with_suffix('.drm.epub')
+args.drm_file = args.acsm_file.with_suffix('.drm')
 args.epub_file = args.acsm_file.with_suffix('.epub')
 args.adobe_dir = Path('~/.config/knock').expanduser()
 
 if not args.acsm_file.exists():
-    raise Exception(f'{str(args.acsm_file)} does not exist.')
+    sys.exit(f'{str(args.acsm_file)} does not exist.')
 
 if args.epub_file.exists():
-    raise Exception(f'{str(args.epub_file)} already exists.')
+    sys.exit(f'{str(args.epub_file)} already exists.')
 
 if not args.adobe_dir.exists():
     print('This device is not registered with Adobe.')
@@ -43,6 +43,10 @@ subprocess.check_call([
     '-o', str(args.drm_file),
     '-f', str(args.acsm_file)
 ])
+
+drm_file_type = magic.from_file(str(args.drm_file), mime=True)
+if drm_file_type != 'application/epub+zip':
+    sys.exit(f'Received a file of type:\n{drm_file_type}\nKnock only supports EPUB files.')
 
 print('Decrypting the file...')
 
