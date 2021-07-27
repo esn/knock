@@ -26,23 +26,23 @@ if not args.adobe_dir.exists():
     password = getpass("Enter your Adobe account's password: ")
     print('Registering this device with Adobe...')
     
-    subprocess.check_call([
+    subprocess.run([
         'adept-register',
         '-u', email,
         '-p', password,
         '-O', str(args.adobe_dir)
-    ])
+    ], check=True)
 
 print('Downloading the EPUB file from Adobe...')
 
-subprocess.check_call([
+subprocess.run([
     'adept-download',
     '-d', str(args.adobe_dir.joinpath('device.xml')),
     '-a', str(args.adobe_dir.joinpath('activation.xml')),
     '-k', str(args.adobe_dir.joinpath('devicesalt')),
     '-o', str(args.drm_file),
     '-f', str(args.acsm_file)
-])
+], check=True)
 
 drm_file_type = magic.from_file(str(args.drm_file), mime=True)
 if drm_file_type != 'application/epub+zip':
@@ -50,12 +50,12 @@ if drm_file_type != 'application/epub+zip':
 
 print('Decrypting the file...')
 
-subprocess.check_call([
+subprocess.run([
     'inept-epub',
     str(args.adobe_dir.joinpath('activation.xml')),
     str(args.drm_file),
     str(args.epub_file)
-])
+], check=True)
 
 args.drm_file.unlink()
 
