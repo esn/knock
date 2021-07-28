@@ -15,10 +15,10 @@ args.epub_file = args.acsm_file.with_suffix('.epub')
 args.adobe_dir = Path('~/.config/knock').expanduser()
 
 if not args.acsm_file.exists():
-    sys.exit(f'{str(args.acsm_file)} does not exist.')
+    sys.exit(f'ERROR: {str(args.acsm_file)} does not exist.')
 
 if args.epub_file.exists():
-    sys.exit(f'{str(args.epub_file)} already exists.')
+    sys.exit(f'ERROR: {str(args.epub_file)} already exists.')
 
 if not args.adobe_dir.exists():
     print('This device is not registered with Adobe.')
@@ -35,14 +35,18 @@ if not args.adobe_dir.exists():
 
 print('Downloading the EPUB file from Adobe...')
 
-subprocess.run([
+result = subprocess.run([
     'adept-download',
     '-d', str(args.adobe_dir.joinpath('device.xml')),
     '-a', str(args.adobe_dir.joinpath('activation.xml')),
     '-k', str(args.adobe_dir.joinpath('devicesalt')),
     '-o', str(args.drm_file),
     '-f', str(args.acsm_file)
-], check=True)
+], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+if result.returncode != 0 or not args.drm_file.exists():
+    print('ERROR: ', file=sys.stderr)
+    sys.exit(result)
 
 drm_file_type = magic.from_file(str(args.drm_file), mime=True)
 if drm_file_type != 'application/epub+zip':
@@ -50,12 +54,16 @@ if drm_file_type != 'application/epub+zip':
 
 print('Decrypting the file...')
 
-subprocess.run([
+result = subprocess.run([
     'inept-epub',
     str(args.adobe_dir.joinpath('activation.xml')),
     str(args.drm_file),
     str(args.epub_file)
-], check=True)
+], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+if result.returncode != 0 or not args.epub_file.exists():
+    print('ERROR: ', file=sys.stderr)
+    sys.exit(result)
 
 args.drm_file.unlink()
 
