@@ -17,7 +17,7 @@
   in {
     defaultPackage.x86_64-linux = nixpkgs.stdenv.mkDerivation {
         pname = "knock";
-        version = "0.0.0";
+        version = "0.0.1";
         src = self;
         nativeBuildInputs = [ nixpkgs.makeWrapper ];
         buildInputs = [
