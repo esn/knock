@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys, argparse, subprocess, magic
+import os, sys, argparse, subprocess, magic, shutil
 from pathlib import Path
 from getpass import getpass
 
@@ -20,18 +20,34 @@ if not args.acsm_file.exists():
 if args.epub_file.exists():
     sys.exit(f'ERROR: {str(args.epub_file)} already exists.')
 
+if args.drm_file.exists():
+    sys.exit(f'ERROR: {str(args.drm_file)} must be moved or deleted.')    
+
 if not args.adobe_dir.exists():
     print('This device is not registered with Adobe.')
     email = input("Enter your Adobe account's email address: ")
     password = getpass("Enter your Adobe account's password: ")
     print('Registering this device with Adobe...')
     
-    subprocess.run([
+    result = subprocess.run([
         'adept-register',
         '-u', email,
-        '-p', password,
         '-O', str(args.adobe_dir)
-    ], check=True)
+    ], input=password.encode(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    if result.stdout.decode().strip().startswith('Exception code : 0x1003'):
+        shutil.rmtree(str(args.adobe_dir))
+        sys.exit('ERROR: Incorrect password')
+
+    if result.stdout.decode().strip().startswith('Exception code : 0x500a'):
+        shutil.rmtree(str(args.adobe_dir))
+        sys.exit('ERROR: No internet access')
+
+    if result.returncode != 0 or not args.adobe_dir.exists() or result.stdout.decode().strip().startswith('Exception code : '):
+        if args.adobe_dir.exists():
+            shutil.rmtree(str(args.adobe_dir))
+        print('ERROR: ', file=sys.stderr)
+        sys.exit(result)
 
 print('Downloading the EPUB file from Adobe...')
 
@@ -43,6 +59,9 @@ result = subprocess.run([
     '-o', str(args.drm_file),
     '-f', str(args.acsm_file)
 ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+if result.stdout.decode().strip().startswith('Exception code : 0x500a'):
+    sys.exit('ERROR: No internet access')
 
 if result.returncode != 0 or not args.drm_file.exists():
     print('ERROR: ', file=sys.stderr)

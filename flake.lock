@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1627404663,
-        "narHash": "sha256-SnuVDohY/jnoN1oUGtYZBgDAqdVvETB6yuEuUiwzIOA=",
+        "lastModified": 1627508403,
+        "narHash": "sha256-JHOxPSJSaS+0NTUkNv6a9oI8g30pBuCDC+JwtZBaq3U=",
         "owner": "BentonEdmondson",
         "repo": "libgourou-utils",
-        "rev": "67e6e7ba08832c716ea156d80c9b3b26adb3cfd2",
+        "rev": "f16d3df200134209a1e2e530db056b3cd715425d",
         "type": "github"
       },
       "original": {
