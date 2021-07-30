@@ -10,14 +10,28 @@ This software does not utilize Adobe Digital Editions nor Wine. It is completely
 
 1. Create a free Adobe account [here](https://account.adobe.com) if you do not already have one.
 1. Install the software.
-    * For NixOS, include this flake in your system `flake.nix`.
+    * For NixOS, include this flake in your system `flake.nix`. Then run `knock ~/path/to/my-book.acsm` to use.
         ```nix
         inputs.knock.url = github:BentonEdmondson/knock
         outputs = { self, knock }: { /* knock.defaultPackage.x86_64-linux is the package */ }
         ```
-    * For non-NixOS, download the latest [release](https://github.com/BentonEdmondson/knock/releases). It is large because it includes all dependencies, allowing it to run on any system with an x86_64 Linux kernel. It was built using [`nix bundle`](https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-bundle.html).
-1. Download the ACSM file from wherever you bought the book.
-1. Run `knock my-book.acsm`. Enter your Adobe username and password if prompted.
+    * For non-NixOS, use the latest [release](https://github.com/BentonEdmondson/knock/releases). It is large because it includes all dependencies, allowing it to run on any system with an x86_64 Linux kernel. It was built using [`nix bundle`](https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-bundle.html). Use it by doing the following:
+        1. Download `knock-version-x8664-linux` and open a terminal
+        1. Navigate to the folder within which `knock-version-x86_64-linux` resides (e.g. `cd ~/Downloads`)
+        1. Run `mv knock-version-x86_64-linux knock` to rename it to `knock`
+        1. Run `chmod +x knock` to make it executable
+        1. Run `./knock ~/path/to/my-book.acsm` to convert the ebook
+
+            If you receive an error that says something like `./nix/store/...: not found` or `./nix/store/...: No such file or directory` then you might not have user namespaces enabled. Try running the following to fix it:
+
+            ```
+            echo "kernel.unprivileged_userns_clone=1" >> /etc/sysctl.conf
+            sudo reboot
+            ```
+
+        1. Enter in your Adobe email and password when prompted
+        1. Optionally move the executable to `~/bin` (for your user) or `/usr/local/bin/` (for all users) to allow it to run from anywhere (might not work on some distributions)
+
 
 ## Verified Book Sources
 
