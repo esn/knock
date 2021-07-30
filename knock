@@ -9,7 +9,7 @@ parser.add_argument('acsm_file', metavar='file', type=str, help='the ACSM file t
 args = parser.parse_args()
 
 # these are all Path objects: https://docs.python.org/3/library/pathlib.html
-args.acsm_file = Path(args.acsm_file).expanduser()
+args.acsm_file = Path(args.acsm_file).expanduser().resolve()
 args.drm_file = args.acsm_file.with_suffix('.drm')
 args.epub_file = args.acsm_file.with_suffix('.epub')
 args.adobe_dir = Path('~/.config/knock').expanduser()
