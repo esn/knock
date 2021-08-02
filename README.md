@@ -35,10 +35,12 @@ This software does not utilize Adobe Digital Editions nor Wine. It is completely
 
 ## Verified Book Sources
 
-Knock has been verified to work on books provided by the following
-* [eBooks.com](https://www.ebooks.com/en-us/), as long as the description says
-    > To download and read this eBook on a PC or Mac:
-    > * Adobe Digital Editions (This is a free app specially developed for eBooks. It's not the same as Adobe Reader, which you probably already have on your computer.)
+Knock should work on any ACSM file, but it has been specifically verified to work on ACSM EPUB files from the following:
+
+* [eBooks.com](https://www.ebooks.com/en-us/)
+* [Rakuten Kobo](https://www.kobo.com/us/en)
+* [Google Books](https://books.google.com/)
+* [Hugendubel.de](https://www.hugendubel.de/de/) (German)
 
 The resulting EPUB file can be read with any EPUB reader.
 
